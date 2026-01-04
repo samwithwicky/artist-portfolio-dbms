@@ -132,23 +132,7 @@ artist-portfolio-dbms/
    ```
    http://localhost:5000
    ```
-
----
-
-## 📘 Academic Relevance
-
-This project was developed as part of a **Database Management Systems (DBMS)** course and demonstrates the practical application of database design principles in a real-world web application.
-
----
-
+```
 ## 🏁 Conclusion
 
 The Artist Portfolio Management System successfully integrates DBMS theory with application development, showcasing effective database design, normalization, and backend integration.
-
----
-
-## 📎 License
-
-This project is intended for academic and educational use.
-
-```
