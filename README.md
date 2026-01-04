@@ -132,7 +132,7 @@ artist-portfolio-dbms/
    ```
    http://localhost:5000
    ```
-```
+````
 ## 🏁 Conclusion
 
 The Artist Portfolio Management System successfully integrates DBMS theory with application development, showcasing effective database design, normalization, and backend integration.
