@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Artwork</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>My Art Portfolio</h1>
+<a href="/add">➕ Add Artwork</a>
+
+<div class="gallery">
+{% for a in artworks %}
+<div class="card">
+    <img 
+        src="/static/{{ a.image_path }}" 
+        class="art-image"
+        onclick="openViewer(this.src)"
+        alt="{{ a.title }}"
+    >
+
+    <h3>{{ a.title }}</h3>
+    <p>{{ a.medium }} | {{ a.year_created }}</p>
+    <p>{{ a.category_name }}</p>
+
+    <a href="/edit/{{ a.artwork_id }}">Edit</a>
+    <a href="/delete/{{ a.artwork_id }}">Delete</a>
+</div>
+{% endfor %}
+</div>
+
+
+<div id="imageViewer" class="viewer" onclick="closeViewer()">
+    <img id="viewerImg">
+</div>
+
+<script>
+function openViewer(src) {
+    const viewer = document.getElementById("imageViewer");
+    const img = document.getElementById("viewerImg");
+    img.src = src;
+    viewer.style.display = "flex";
+}
+
+function closeViewer() {
+    document.getElementById("imageViewer").style.display = "none";
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        closeViewer();
+    }
+});
+</script>
+
+</body>
+</html>

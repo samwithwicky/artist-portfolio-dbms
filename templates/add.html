@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Artwork</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h2>Add Artwork</h2>
+
+<form method="post">
+
+    <label>Title</label>
+    <input type="text" name="title" placeholder="Artwork title" required>
+
+    <label>Medium</label>
+    <input type="text" name="medium" placeholder="e.g. Watercolor, Ink, Digital" required>
+
+    <label>Year Created</label>
+    <input type="number" name="year" placeholder="2024" required>
+
+    <label>Image Path</label>
+    <input type="text" name="image_path" placeholder="images/my_art.jpg">
+
+    <label>Category</label>
+    <select name="category" required>
+        {% for c in categories %}
+        <option value="{{ c.category_id }}">{{ c.category_name }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Add Artwork</button>
+
+</form>
+
+<br>
+<a href="/">⬅ Back</a>
+
+</body>
+</html>
