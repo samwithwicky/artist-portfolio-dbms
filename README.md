@@ -109,10 +109,11 @@ artist-portfolio-dbms/
 
 ## ▶️ How to Run
 
+
+````
 1. Create the database and tables:
    ```sql
    SOURCE schema.sql;
-````
 
 2. Install required dependencies:
 
