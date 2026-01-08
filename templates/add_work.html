@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+
+        <div class="card bg-secondary shadow">
+            <div class="card-body">
+
+                <h3 class="card-title mb-3">Add New Work</h3>
+                <p class="text-muted mb-4">
+                    Add an image or video to this portfolio with proper details.
+                </p>
+
+                <form method="post">
+
+                    <!-- TITLE -->
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input
+                            type="text"
+                            name="title"
+                            class="form-control"
+                            placeholder="Artwork / Project title"
+                            required
+                        >
+                    </div>
+
+                    <!-- DESCRIPTION -->
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea
+                            name="description"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Short description of the work"
+                        ></textarea>
+                    </div>
+
+                    <!-- MEDIA TYPE -->
+                    <div class="mb-3">
+                        <label class="form-label">Media Type</label>
+                        <select name="media_type" class="form-select">
+                            <option value="IMAGE">Image</option>
+                            <option value="VIDEO">Video</option>
+                        </select>
+                    </div>
+
+                    <!-- CATEGORY -->
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <input
+                            type="text"
+                            name="category"
+                            class="form-control"
+                            placeholder="e.g. Watercolor, Digital Art, Video Edit"
+                        >
+                    </div>
+
+                    <!-- FILE PATH -->
+                    <div class="mb-4">
+                        <label class="form-label">File Path</label>
+                        <input
+                            type="text"
+                            name="file_path"
+                            class="form-control"
+                            placeholder="uploads/example.jpg or uploads/video.mp4"
+                        >
+                        <div class="form-text text-light">
+                            Place files inside <code>static/uploads/</code>
+                        </div>
+                    </div>
+
+                    <!-- ACTIONS -->
+                    <div class="d-flex justify-content-between">
+                        <a href="javascript:history.back()" class="btn btn-outline-light">
+                            Cancel
+                        </a>
+                        <button class="btn btn-success">
+                            Add Work
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

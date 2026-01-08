@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Register</title></head>
+<body>
+<form method="post">
+    <input name="username" placeholder="Username" required>
+    <input name="password" type="password" placeholder="Password" required>
+    <button>Register</button>
+</form>
+<a href="/login">Login</a>
+{% if error %}<p>{{ error }}</p>{% endif %}
+</body>
+</html>

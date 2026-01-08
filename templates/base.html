@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creator Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-dark text-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-black px-4">
+    <a class="navbar-brand fw-bold" href="/profile">🎨 Creator Portfolio</a>
+
+    <div class="ms-auto">
+        <a href="/profile" class="btn btn-outline-light btn-sm">Profile</a>
+        <a href="/logout" class="btn btn-outline-danger btn-sm ms-2">Logout</a>
+    </div>
+</nav>
+
+<div class="container my-5">
+    {% block content %}{% endblock %}
+</div>
+
+<!-- FULLSCREEN VIEW MODAL -->
+<div id="viewerModal" class="position-fixed top-0 start-0 w-100 h-100 d-none"
+     style="background:rgba(0,0,0,0.9); z-index:1050;"
+     onclick="closeViewer()">
+
+    <span class="position-absolute top-0 end-0 m-4 fs-2 text-white"
+          style="cursor:pointer;">✕</span>
+
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <img id="viewerImage" class="img-fluid d-none" style="max-height:90%;">
+        <video id="viewerVideo" class="d-none" controls style="max-height:90%; max-width:90%;"></video>
+    </div>
+</div>
+
+<script>
+function openImage(src) {
+    document.getElementById("viewerModal").classList.remove("d-none");
+    document.getElementById("viewerImage").src = src;
+    document.getElementById("viewerImage").classList.remove("d-none");
+    document.getElementById("viewerVideo").classList.add("d-none");
+}
+
+function openVideo(src) {
+    document.getElementById("viewerModal").classList.remove("d-none");
+    const video = document.getElementById("viewerVideo");
+    video.src = src;
+    video.classList.remove("d-none");
+    document.getElementById("viewerImage").classList.add("d-none");
+}
+
+function closeViewer() {
+    const modal = document.getElementById("viewerModal");
+    modal.classList.add("d-none");
+
+    const video = document.getElementById("viewerVideo");
+    video.pause();
+    video.src = "";
+}
+</script>
+
+</body>
+</html>

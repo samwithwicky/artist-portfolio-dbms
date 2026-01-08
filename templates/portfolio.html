@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- PORTFOLIO HEADER -->
+<div class="mb-4">
+    <h2 class="fw-bold">{{ portfolio.title }}</h2>
+    <p class="text-muted">{{ portfolio.description }}</p>
+</div>
+
+<!-- SEARCH + FILTER -->
+<form method="get" class="row g-2 mb-4">
+    <div class="col-md-6">
+        <input
+            class="form-control"
+            name="search"
+            value="{{ search }}"
+            placeholder="Search works by title or description"
+        >
+    </div>
+
+    <div class="col-md-4">
+        <select class="form-select" name="category">
+            <option value="">All Categories</option>
+            {% for c in categories %}
+                <option value="{{ c }}"
+                    {% if c == selected_category %}selected{% endif %}>
+                    {{ c }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <button class="btn btn-primary w-100">Apply</button>
+    </div>
+</form>
+
+<!-- ADD WORK BUTTON -->
+<a href="/add_work/{{ portfolio.portfolio_id }}" class="btn btn-success mb-4">
+    + Add Work
+</a>
+
+<!-- WORKS GRID -->
+<div class="row">
+{% for w in works %}
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-secondary h-100 shadow">
+
+            {% if w.media_type == "IMAGE" %}
+                <img
+                    src="/static/{{ w.file_path }}"
+                    class="card-img-top"
+                    style="cursor:pointer;"
+                    onclick="openImage('/static/{{ w.file_path }}')"
+                >
+            {% else %}
+                <video
+                    class="w-100"
+                    style="cursor:pointer;"
+                    onclick="openVideo('/static/{{ w.file_path }}')"
+                >
+                    <source src="/static/{{ w.file_path }}">
+                </video>
+            {% endif %}
+
+            <div class="card-body">
+                <h6 class="card-title mb-1">{{ w.title }}</h6>
+                <p class="small text-muted mb-2">{{ w.category }}</p>
+
+                <a
+                    href="/delete_work/{{ w.work_id }}"
+                    class="btn btn-danger btn-sm"
+                    onclick="return confirm('Delete this work?')"
+                >
+                    Delete
+                </a>
+            </div>
+
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+{% if works|length == 0 %}
+<p class="text-muted">No works added yet. Start by adding one.</p>
+{% endif %}
+
+{% endblock %}
