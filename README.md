@@ -141,6 +141,3 @@ http://127.0.0.1:5000
 ## 🏁 Conclusion
 
 The Creator Portfolio Management System successfully integrates **database design principles** with **application development**, resulting in a scalable, user-friendly, and academically sound project that reflects real-world system design practices.
-
-
-Just say the word 
