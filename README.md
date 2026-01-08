@@ -1,50 +1,54 @@
-# 🎨 Artist Portfolio Management System (DBMS Project)
+# 🎨 Creator Portfolio Management System (DBMS Project)
 
-A database-driven artist portfolio management system built using **MySQL** and **Flask**, designed to demonstrate core **DBMS concepts** such as **ER modeling, normalization (3NF), relational constraints, and SQL operations**, integrated with a functional web interface.
+A database-driven **creator portfolio management system** built using **Flask** and **SQL**, designed to demonstrate core **DBMS concepts** such as **ER modeling, normalization (3NF), relational constraints, and CRUD operations**, integrated with a functional and polished web interface.
 
 ---
 
 ## 📌 Project Overview
 
-The Artist Portfolio Management System allows artists to manage portfolios and artworks, categorize them efficiently, and display artworks through a clean gallery interface.  
-This project applies theoretical DBMS concepts to a real-world application.
+The Creator Portfolio Management System allows creators to maintain **multiple portfolios** for different creative domains (e.g. illustration, video editing, photography) and showcase their work through an interactive gallery.
+
+This project bridges **theoretical DBMS concepts** with a **real-world web application**, making it suitable for academic evaluation as well as practical demonstration.
 
 ---
 
 ## 🎯 Objectives
 
-- Design a normalized relational database schema
-- Implement one-to-many and many-to-many relationships
-- Enforce referential integrity using constraints
-- Integrate SQL queries with a backend application
-- Provide a simple and functional frontend
+* Design a normalized relational database schema
+* Implement one-to-many relationships
+* Enforce data integrity through constraints
+* Integrate SQL queries with a backend application
+* Build a functional, user-friendly frontend
+* Demonstrate complete CRUD operations
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** HTML, CSS  
-- **Backend:** Python (Flask)  
-- **Database:** MySQL  
-- **Connectivity:** MySQL Connector (Python)
+* **Frontend:** HTML, CSS, Bootstrap
+* **Backend:** Python (Flask)
+* **Database:** SQLite (demo) / MySQL-compatible schema
+* **Templating Engine:** Jinja2
+
+> 🔹 *SQLite is used for local demonstration due to ease of setup.
+> The schema and queries are designed to be compatible with MySQL for deployment.*
 
 ---
 
 ## 🗂️ Database Design
 
 ### Entities
-- **Artist**
-- **Portfolio**
-- **Artwork**
-- **Category**
-- **Artwork_Category** (associative table)
+
+* **User** – stores authentication details
+* **Portfolio** – represents a creative domain owned by a user
+* **Work** – individual artworks or videos within a portfolio
 
 ### Relationships
-- One Artist → Many Portfolios  
-- One Portfolio → Many Artworks  
-- Many Artworks ↔ Many Categories  
 
-The many-to-many relationship between artworks and categories is resolved using an associative table to maintain normalization.
+* One **User** → Many **Portfolios**
+* One **Portfolio** → Many **Works**
+
+This structure ensures clear ownership and scalability.
 
 ---
 
@@ -52,87 +56,103 @@ The many-to-many relationship between artworks and categories is resolved using 
 
 The database is normalized up to **Third Normal Form (3NF)**:
 
-- **1NF:** Atomic attributes  
-- **2NF:** No partial dependency  
-- **3NF:** No transitive dependency  
+* **1NF:** All attributes are atomic
+* **2NF:** No partial dependencies
+* **3NF:** No transitive dependencies
 
-This ensures minimal redundancy and strong data integrity.
+This minimizes redundancy and ensures strong data integrity.
 
 ---
 
 ## 📂 Project Structure
 
 ```
-
-artist-portfolio-dbms/
+creator-portfolio/
 │
-├── app.py              # Flask application
-├── schema.sql          # Database schema
-├── setup_db.py         # Database setup script
+├── app.py                 # Main Flask application
+├── schema.sql             # Database schema
+├── init_db.py             # Database initialization script
+├── database.db            # SQLite database (auto-generated)
 │
 ├── templates/
-│   ├── gallery.html    # Artwork gallery
-│   ├── add.html        # Add artwork page
-│   └── edit.html       # Edit artwork page
+│   ├── base.html
+│   ├── login.html
+│   ├── register.html
+│   ├── profile.html
+│   ├── portfolio.html
+│   ├── add_portfolio.html
+│   └── add_work.html
 │
 ├── static/
-│   ├── style.css       # Stylesheet
-│   └── images/         # Artwork images
+│   └── uploads/           # Uploaded images/videos
 │
 └── README.md
-
-````
+```
 
 ---
 
 ## 🚀 Features
 
-- Add, edit, and delete artworks
-- Organize artworks into portfolios
-- Categorize artworks using multiple categories
-- Display artworks in a gallery view
-- Gmail-style image preview
-- Enforced referential integrity with cascading deletes
+* User registration and login
+* Create and manage **multiple portfolios**
+* Add images and videos to portfolios
+* Categorize creative works
+* Search and filter works by category or keyword
+* Fullscreen content viewer (image/video)
+* Delete portfolios and individual works
+* Clean, responsive UI using Bootstrap
 
 ---
 
 ## 🧪 DBMS Concepts Implemented
 
-- Primary and foreign keys
-- Constraints (`UNIQUE`, `CHECK`)
-- Cascading deletes (`ON DELETE CASCADE`)
-- Many-to-many relationship resolution
-- SQL joins and CRUD operations
-- ER modeling and normalization
+* Primary keys and foreign keys
+* One-to-many relationships
+* Referential integrity
+* Cascading logical deletes
+* SQL-based CRUD operations
+* ER modeling and normalization
+* Backend–database integration
 
 ---
 
-## ▶️ How to Run
+## ▶️ How to Run the Project
 
+### 1️⃣ Initialize the database (run once)
 
-````
-1. Create the database and tables:
-   ```sql
-   SOURCE schema.sql;
+```bash
+python init_db.py
+```
 
-2. Install required dependencies:
+### 2️⃣ Start the Flask server
 
-   ```bash
-   pip install flask mysql-connector-python
-   ```
+```bash
+python app.py
+```
 
-3. Run the application:
+### 3️⃣ Open in browser
 
-   ```bash
-   python app.py
-   ```
+```
+http://127.0.0.1:5000
+```
 
-4. Open your browser and visit:
+---
 
-   ```
-   http://localhost:5000
-   ```
-````
+## 🎓 Academic Relevance
+
+This project demonstrates how **DBMS theory** can be applied to a real-world system, covering schema design, normalization, relationships, and SQL integration within a web application.
+
+It is suitable for:
+
+* DBMS lab evaluation
+* Mini-project demonstrations
+* Viva and practical exams
+
+---
+
 ## 🏁 Conclusion
 
-The Artist Portfolio Management System successfully integrates DBMS theory with application development, showcasing effective database design, normalization, and backend integration.
+The Creator Portfolio Management System successfully integrates **database design principles** with **application development**, resulting in a scalable, user-friendly, and academically sound project that reflects real-world system design practices.
+
+
+Just say the word 😊
