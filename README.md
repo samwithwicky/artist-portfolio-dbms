@@ -138,21 +138,9 @@ http://127.0.0.1:5000
 
 ---
 
-## 🎓 Academic Relevance
-
-This project demonstrates how **DBMS theory** can be applied to a real-world system, covering schema design, normalization, relationships, and SQL integration within a web application.
-
-It is suitable for:
-
-* DBMS lab evaluation
-* Mini-project demonstrations
-* Viva and practical exams
-
----
-
 ## 🏁 Conclusion
 
 The Creator Portfolio Management System successfully integrates **database design principles** with **application development**, resulting in a scalable, user-friendly, and academically sound project that reflects real-world system design practices.
 
 
-Just say the word 😊
+Just say the word 
